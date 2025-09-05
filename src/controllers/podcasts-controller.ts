@@ -1,8 +1,24 @@
 import {IncomingMessage, ServerResponse} from "http";
 
-export const getListEpisodes = async (request: IncomingMessage, response: ServerResponse) => {
+export const getListEpisodes = async (
+    request: IncomingMessage, 
+    response: ServerResponse) => {
     response.writeHead(200, {'Content-Type': 'application/json'});
-    response.end({
-        name: "Carla",
-    });
+
+    response.end(
+        JSON.stringify([
+        {
+        podcastName: "Venus Podcast",
+        episode: "sou EMOCIONADO, E AGORA? Amores de Venus #04",
+        videoId: "E3qaqHkKgVQ",
+        category: ["humor", "mentalidade"]
+        },
+        {
+        podcastName: "TURMA DO YUR",
+        episode: "IAN NEVES - BEN-YUR Podcast #277",
+        videoId: "_cS6PQVxUzk",
+        category: ["humor", "saúde"]
+        }
+    ])
+);
 };
